@@ -158,3 +158,6 @@ exports.wordArrayToBytes = function (wordArray) {
   return exports.wordsToBytes(wordArray.words)
 }
 
+exports.reverseEndian = function(hex) {
+  return exports.bytesToHex(exports.hexToBytes(hex).reverse())
+}
