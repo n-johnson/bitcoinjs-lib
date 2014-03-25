@@ -14,9 +14,8 @@ var testnet = Network.testnet.addressVersion
 describe('ECKey', function() {
     describe('constructor', function() {
         it('parses hex', function() {
-            var priv = '18e14a7b6a307f426a94f8114701e7c8e774e7f9a47e2c2035db29a206321725';
-            var pub = '0450863ad64a87ae8a2fe83c1af1a8403cb53f53e486d8511dad8a04887e5b235' +
-                      '22cd470243453a299fa9e77237716103abc11a1df38855ed6f2ee187e9c582ba6';
+            var priv = 'ACDA49E9CEB45F3071A9BB2A15C17E6DBA0E699D3F26805833653123F279CDEE';
+            var pub = '04a844973f1354a6b6d87673d1d27dc89c063fb18142d0cce0633b194a5309b61de5dc846cf5ed3499f1f30bdbc6404ea0341dd8b6205e29dc52a7062e30b8138c';
             var key = new ECKey(priv);
 
             assert.equal(key.getPub().toHex(), pub);
@@ -24,9 +23,8 @@ describe('ECKey', function() {
         })
 
         it('parses base64', function() {
-            var priv = 'VYdB+iv47y5FaUVIPdQInkgATrABeuD1lACUoM4x7tU=';
-            var pub = '042f43c16c08849fed20a35bb7b1947bbf0923c52d613ee13b5c665a1e10d24b2' +
-                      '8be909a70f5f87c1adb79fbcd1b3f17d20aa91c04fc355112dba2ce9b1cbf013b';
+            var priv = 'rNpJ6c60XzBxqbsqFcF+bboOaZ0/JoBYM2UxI/J5ze4=';
+            var pub = '04a844973f1354a6b6d87673d1d27dc89c063fb18142d0cce0633b194a5309b61de5dc846cf5ed3499f1f30bdbc6404ea0341dd8b6205e29dc52a7062e30b8138c';
             var key = new ECKey(priv);
 
             assert.equal(key.getPub().toHex(), pub);
@@ -34,10 +32,9 @@ describe('ECKey', function() {
         })
 
         it('parses WIF', function() {
-            var priv = '5HwoXVkHoRM8sL2KmNRS217n1g8mPPBomrY7yehCuXC1115WWsh';
-            var pub = '044f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0' +
-                      'f0b704075871aa385b6b1b8ead809ca67454d9683fcf2ba03456d6fe2c4abe2b07f0fbdbb2f1c1';
-            var addr = '1MsHWS1BnwMc3tLE8G35UXsS58fKipzB7a';
+            var priv = '7rrzH84Q95jhDYbMy4izL8tsaRi5hgeGaT27A5gUSHi3g2DryVU';
+            var pub = '04a844973f1354a6b6d87673d1d27dc89c063fb18142d0cce0633b194a5309b61de5dc846cf5ed3499f1f30bdbc6404ea0341dd8b6205e29dc52a7062e30b8138c';
+            var addr = 'XtdV8c8G1VFhXbrswGCi8NRUWkSkaGv2Mh';
             var key = new ECKey(priv);
 
             assert.equal(key.compressed, false);
@@ -46,9 +43,9 @@ describe('ECKey', function() {
         })
 
         it('parses compressed WIF', function() {
-            var priv = 'KwntMbt59tTsj8xqpqYqRRWufyjGunvhSyeMo3NTYpFYzZbXJ5Hp';
-            var pub = '034f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa'
-            var addr = '1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9';
+            var priv = 'XH5dpAA18fuSWNSfYTSL3TqxEY4KkZyVkdqtB5fE6ckAo1xDr6qE';
+            var pub = '02a844973f1354a6b6d87673d1d27dc89c063fb18142d0cce0633b194a5309b61d'
+            var addr = 'XeZibEUhDr1tgVhktA5iS15E61Z97CP7z8';
             var key = new ECKey(priv);
 
             assert.equal(key.compressed, true);
@@ -88,14 +85,14 @@ describe('ECKey', function() {
 
         it('mainnet', function() {
             var addresses = [
-                '19SgmoUj4xowEjwtXvNAtYTAgbvR9iBCui',
-                '1MsHWS1BnwMc3tLE8G35UXsS58fKipzB7a',
-                '16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM'
+                'Xj8Xc48d2g2XPgYUPogPk58xWwW79vMPAH',
+                'XwZ8Lgf5keaCCpvoz9MJL4ZDuUF1msarf7',
+                'XanKmaz3PS6CCMFyh4o9BLM5bWyowyrnGR'
             ];
             var compressedAddresses = [
-                '1AA4sjKW2aUmbtN3MtegdvhYtDBbDEke1q',
-                '1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9',
-                '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs',
+                'XjquhyyPzHhMkpxdDmxuVTPLiYmHKyku2n',
+                'Xyhf4LaHDwSwzND5HEv72qoqrsg625rCMt',
+                'Xy3pSqGgGHfS6suRbUFk2mYaBD8oTYApAZ',
             ];
 
             for (var i = 0; i < addresses.length; ++i) {
@@ -112,7 +109,7 @@ describe('ECKey', function() {
             }
         })
 
-        it('testnet', function() {
+/*        it('testnet', function() {
             var addresses = [
                 '19SgmoUj4xowEjwtXvNAtYTAgbvR9iBCui',
                 '1MsHWS1BnwMc3tLE8G35UXsS58fKipzB7a',
@@ -136,7 +133,7 @@ describe('ECKey', function() {
                 assert.equal(pub.getAddress().toString(), addr);
                 assert.equal(cpub.getAddress().toString(), caddr);
             }
-        })
+        })*/
     });
 
     describe('signing', function() {

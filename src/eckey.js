@@ -31,10 +31,10 @@ ECKey.prototype.import = function (input,compressed) {
         : Array.isArray(input)                      ? fromBin(input.slice(0,32))
         : typeof input != "string"                 ? null
         : input.length == 44                       ? fromBin(convert.base64ToBytes(input))
-        : input.length == 51 && input[0] == '5'    ? fromBin(base58.checkDecode(input))
-        : input.length == 51 && input[0] == '9'    ? fromBin(base58.checkDecode(input))
-        : input.length == 52 && has('LK',input[0]) ? fromBin(base58.checkDecode(input).slice(0,32))
-        : input.length == 52 && input[0] == 'c'    ? fromBin(base58.checkDecode(input).slice(0,32))
+        : input.length == 51 && input[0] == '7'    ? fromBin(base58.checkDecode(input)) //Darkcoin main
+        : input.length == 51 && input[0] == '9'    ? fromBin(base58.checkDecode(input)) //Bitcoin test net
+        : input.length == 52 && has('X',input[0]) ? fromBin(base58.checkDecode(input).slice(0,32)) //Darkcoin main
+        : input.length == 52 && input[0] == 'c'    ? fromBin(base58.checkDecode(input).slice(0,32)) //Bitcoin test net
         : has([64,65],input.length)                ? fromBin(convert.hexToBytes(input.slice(0,64)))
                                                    : null
 
@@ -45,9 +45,9 @@ ECKey.prototype.import = function (input,compressed) {
         : Array.isArray(input)                      ? false
         : typeof input != "string"                 ? null
         : input.length == 44                       ? false
-        : input.length == 51 && input[0] == '5'    ? false
+        : input.length == 51 && input[0] == '7'    ? false
         : input.length == 51 && input[0] == '9'    ? false
-        : input.length == 52 && has('LK',input[0]) ? true
+        : input.length == 52 && has('X',input[0]) ? true
         : input.length == 52 && input[0] == 'c'    ? true
         : input.length == 64                       ? false
         : input.length == 65                       ? true
