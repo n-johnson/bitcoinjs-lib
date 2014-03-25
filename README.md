@@ -1,3 +1,5 @@
+Darkcoin fork. WIP.
+
 # bitcoinjs-lib
 
 [![Build Status](https://travis-ci.org/bitcoinjs/bitcoinjs-lib.png?branch=master)](https://travis-ci.org/bitcoinjs/bitcoinjs-lib)

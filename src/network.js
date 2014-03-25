@@ -1,7 +1,7 @@
 module.exports = {
   mainnet: {
-    addressVersion: 0,
-    p2shVersion: 5,
+    addressVersion: 76,
+    p2shVersion: 7,
     hdVersions: {
       pub: 0x0488B21E,
       priv: 0x0488ADE4
