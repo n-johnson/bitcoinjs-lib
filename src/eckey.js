@@ -72,13 +72,11 @@ ECKey.prototype.toBin = function() {
 }
 
 ECKey.version_bytes = {
-  0: 128,
-  111: 239
+  76: 204
 }
 
 ECKey.prototype.toWif = function(version) {
     version = version || Network.mainnet.addressVersion;
-
     return base58.checkEncode(this.toBytes(), ECKey.version_bytes[version])
 }
 
